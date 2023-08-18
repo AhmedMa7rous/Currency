@@ -16,6 +16,11 @@
 		4B48F4872A8EA13100F99908 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B48F4862A8EA13100F99908 /* NetworkManager.swift */; };
 		4B48F4892A8EA17500F99908 /* SSLPinningSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B48F4882A8EA17500F99908 /* SSLPinningSessionManager.swift */; };
 		4B48F48B2A8EA1A000F99908 /* sni.cloudflaressl.com.cer in Resources */ = {isa = PBXBuildFile; fileRef = 4B48F48A2A8EA1A000F99908 /* sni.cloudflaressl.com.cer */; };
+		4B48F4942A8F974600F99908 /* IbanValidatorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B48F48E2A8F974600F99908 /* IbanValidatorViewController.xib */; };
+		4B48F4952A8F974600F99908 /* IbanValidatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B48F48F2A8F974600F99908 /* IbanValidatorViewController.swift */; };
+		4B48F4962A8F974600F99908 /* TableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B48F4902A8F974600F99908 /* TableViewHeader.swift */; };
+		4B48F4972A8F974600F99908 /* CurrencyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B48F4922A8F974600F99908 /* CurrencyTableViewCell.swift */; };
+		4B48F4982A8F974600F99908 /* CurrencyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B48F4932A8F974600F99908 /* CurrencyTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +35,11 @@
 		4B48F4862A8EA13100F99908 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		4B48F4882A8EA17500F99908 /* SSLPinningSessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSLPinningSessionManager.swift; sourceTree = "<group>"; };
 		4B48F48A2A8EA1A000F99908 /* sni.cloudflaressl.com.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = sni.cloudflaressl.com.cer; sourceTree = "<group>"; };
+		4B48F48E2A8F974600F99908 /* IbanValidatorViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IbanValidatorViewController.xib; sourceTree = "<group>"; };
+		4B48F48F2A8F974600F99908 /* IbanValidatorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IbanValidatorViewController.swift; sourceTree = "<group>"; };
+		4B48F4902A8F974600F99908 /* TableViewHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewHeader.swift; sourceTree = "<group>"; };
+		4B48F4922A8F974600F99908 /* CurrencyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrencyTableViewCell.swift; sourceTree = "<group>"; };
+		4B48F4932A8F974600F99908 /* CurrencyTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CurrencyTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +86,7 @@
 		4B48F47F2A8E9E7C00F99908 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				4B48F48C2A8F974600F99908 /* IbanValidator */,
 				4B48F4802A8E9ED300F99908 /* NavigationController */,
 			);
 			path = Modules;
@@ -98,6 +109,34 @@
 				4B48F4882A8EA17500F99908 /* SSLPinningSessionManager.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		4B48F48C2A8F974600F99908 /* IbanValidator */ = {
+			isa = PBXGroup;
+			children = (
+				4B48F48D2A8F974600F99908 /* View */,
+			);
+			path = IbanValidator;
+			sourceTree = "<group>";
+		};
+		4B48F48D2A8F974600F99908 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4B48F4902A8F974600F99908 /* TableViewHeader.swift */,
+				4B48F4912A8F974600F99908 /* Cell */,
+				4B48F48E2A8F974600F99908 /* IbanValidatorViewController.xib */,
+				4B48F48F2A8F974600F99908 /* IbanValidatorViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		4B48F4912A8F974600F99908 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				4B48F4932A8F974600F99908 /* CurrencyTableViewCell.xib */,
+				4B48F4922A8F974600F99908 /* CurrencyTableViewCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -160,6 +199,8 @@
 			files = (
 				4B48F4782A8E9D4900F99908 /* LaunchScreen.storyboard in Resources */,
 				4B48F48B2A8EA1A000F99908 /* sni.cloudflaressl.com.cer in Resources */,
+				4B48F4982A8F974600F99908 /* CurrencyTableViewCell.xib in Resources */,
+				4B48F4942A8F974600F99908 /* IbanValidatorViewController.xib in Resources */,
 				4B48F4842A8E9ED300F99908 /* NavigationViewController.xib in Resources */,
 				4B48F4752A8E9D4900F99908 /* Assets.xcassets in Resources */,
 			);
@@ -175,8 +216,11 @@
 				4B48F4872A8EA13100F99908 /* NetworkManager.swift in Sources */,
 				4B48F4832A8E9ED300F99908 /* NavigationViewController.swift in Sources */,
 				4B48F46C2A8E9D4700F99908 /* AppDelegate.swift in Sources */,
+				4B48F4952A8F974600F99908 /* IbanValidatorViewController.swift in Sources */,
+				4B48F4972A8F974600F99908 /* CurrencyTableViewCell.swift in Sources */,
 				4B48F46E2A8E9D4700F99908 /* SceneDelegate.swift in Sources */,
 				4B48F4892A8EA17500F99908 /* SSLPinningSessionManager.swift in Sources */,
+				4B48F4962A8F974600F99908 /* TableViewHeader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
