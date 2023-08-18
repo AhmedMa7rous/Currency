@@ -13,6 +13,9 @@
 		4B48F4782A8E9D4900F99908 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B48F4762A8E9D4900F99908 /* LaunchScreen.storyboard */; };
 		4B48F4832A8E9ED300F99908 /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B48F4812A8E9ED300F99908 /* NavigationViewController.swift */; };
 		4B48F4842A8E9ED300F99908 /* NavigationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B48F4822A8E9ED300F99908 /* NavigationViewController.xib */; };
+		4B48F4872A8EA13100F99908 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B48F4862A8EA13100F99908 /* NetworkManager.swift */; };
+		4B48F4892A8EA17500F99908 /* SSLPinningSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B48F4882A8EA17500F99908 /* SSLPinningSessionManager.swift */; };
+		4B48F48B2A8EA1A000F99908 /* sni.cloudflaressl.com.cer in Resources */ = {isa = PBXBuildFile; fileRef = 4B48F48A2A8EA1A000F99908 /* sni.cloudflaressl.com.cer */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +27,9 @@
 		4B48F4792A8E9D4900F99908 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4B48F4812A8E9ED300F99908 /* NavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationViewController.swift; sourceTree = "<group>"; };
 		4B48F4822A8E9ED300F99908 /* NavigationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NavigationViewController.xib; sourceTree = "<group>"; };
+		4B48F4862A8EA13100F99908 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		4B48F4882A8EA17500F99908 /* SSLPinningSessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSLPinningSessionManager.swift; sourceTree = "<group>"; };
+		4B48F48A2A8EA1A000F99908 /* sni.cloudflaressl.com.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = sni.cloudflaressl.com.cer; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +62,7 @@
 		4B48F46A2A8E9D4700F99908 /* Currency */ = {
 			isa = PBXGroup;
 			children = (
+				4B48F4852A8EA11200F99908 /* Network */,
 				4B48F47F2A8E9E7C00F99908 /* Modules */,
 				4B48F46B2A8E9D4700F99908 /* AppDelegate.swift */,
 				4B48F46D2A8E9D4700F99908 /* SceneDelegate.swift */,
@@ -81,6 +88,16 @@
 				4B48F4822A8E9ED300F99908 /* NavigationViewController.xib */,
 			);
 			path = NavigationController;
+			sourceTree = "<group>";
+		};
+		4B48F4852A8EA11200F99908 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				4B48F48A2A8EA1A000F99908 /* sni.cloudflaressl.com.cer */,
+				4B48F4862A8EA13100F99908 /* NetworkManager.swift */,
+				4B48F4882A8EA17500F99908 /* SSLPinningSessionManager.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -142,6 +159,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4B48F4782A8E9D4900F99908 /* LaunchScreen.storyboard in Resources */,
+				4B48F48B2A8EA1A000F99908 /* sni.cloudflaressl.com.cer in Resources */,
 				4B48F4842A8E9ED300F99908 /* NavigationViewController.xib in Resources */,
 				4B48F4752A8E9D4900F99908 /* Assets.xcassets in Resources */,
 			);
@@ -154,9 +172,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4B48F4872A8EA13100F99908 /* NetworkManager.swift in Sources */,
 				4B48F4832A8E9ED300F99908 /* NavigationViewController.swift in Sources */,
 				4B48F46C2A8E9D4700F99908 /* AppDelegate.swift in Sources */,
 				4B48F46E2A8E9D4700F99908 /* SceneDelegate.swift in Sources */,
+				4B48F4892A8EA17500F99908 /* SSLPinningSessionManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
