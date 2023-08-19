@@ -64,8 +64,8 @@ class IbanValidatorViewController: UIViewController {
     }
     
     @objc func currencyConverterButtonTapped() {
-        // Handle button tap
-        print("Currency Converter")
+        let vc = CurrencyConverterViewController()
+        navigationController?.pushViewController(vc, animated: true)
     }
     
 /*================================================*/
