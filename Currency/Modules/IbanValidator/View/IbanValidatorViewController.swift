@@ -13,16 +13,13 @@ class IbanValidatorViewController: UIViewController {
     @IBOutlet weak var ibanTextField: UITextField!
     @IBOutlet weak var validateButton: UIButton!
     @IBOutlet weak var ibanStackView: UIStackView!
-    
 /*=================================================*/
     //MARK: - Properties
     
     var isStackViewAtTop = false
     var currenciesTableView: UITableView!
-    
-    //change data with your dataSource and bind it to the table view
-    let data = ["Item 1", "Item 2", "Item 3", "Item 4", "Item 5"]
-    
+    private var viewModel = IbanValidatorViewModel()
+    private var dataSource = [String: Double]()
 /*=================================================*/
     //MARK: - LifeCycle
     
@@ -44,13 +41,26 @@ class IbanValidatorViewController: UIViewController {
     //MARK: - Action Connections
     
     @IBAction func validateButtonTapped(_ sender: UIButton) {
-
-        //get iban from the textField
-        guard let iban = ibanTextField.text else { return }
-        
-        startValidatorAnimation()
-        showCurrenciesTableViewWithAnimation()
-    
+        if isStackViewAtTop {
+            startValidatorAnimation()
+            showCurrenciesTableViewWithAnimation()
+        } else {
+            //get iban from the textField
+            guard let iban = ibanTextField.text else { return }
+            viewModel.validateIbanAndFetchCurrencies(for: iban) { [weak self] success in
+                DispatchQueue.main.async {
+                    if success {
+                        print("Success")
+                        self?.bindTableView()
+                        self?.startValidatorAnimation()
+                        self?.showCurrenciesTableViewWithAnimation()
+                    } else {
+                        self?.showCustomAlert()
+                    }
+                }
+            }
+            
+        }
     }
     
     @objc func currencyConverterButtonTapped() {
@@ -159,19 +169,44 @@ class IbanValidatorViewController: UIViewController {
             }
         }
     }
+    
+/*=========================================================*/
+    //MARK: - Service Functions
+    
+    //Show Alert when iban is uncorrect or network Connection error
+    func showCustomAlert() {
+        AlertManager.shared.showAlert(
+            title: "Invalid IBAN number",
+            message: "Please enter a valid IBAN number.",
+            viewController: self,
+            completion: nil
+        )
+    }
+    
+    //Bind tableView DataSource
+    func bindTableView() {
+        viewModel.tableDataSource.bind { [weak self] currencies in
+            DispatchQueue.main.async {
+                guard let currencies = currencies else { return }
+                self?.dataSource = currencies.rates
+                self?.currenciesTableView.reloadData()
+            }
+        }
+    }
 }
 /*==================================================*/
     //MARK: - TableView Functions
 extension IbanValidatorViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return data.count
+        return dataSource.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = currenciesTableView.dequeueReusableCell(withIdentifier: CurrencyTableViewCell.identifier, for: indexPath) as? CurrencyTableViewCell else { return UITableViewCell() }
-        
-        cell.configure(with: (data[indexPath.row], data[indexPath.row]))
+        let sortedDataSource = dataSource.sorted { $0.key < $1.key }
+        let (name, value) = sortedDataSource[indexPath.row]
+        cell.configure(with: name, rate: value)
         return cell
     }
     
@@ -184,3 +219,4 @@ extension IbanValidatorViewController: UITableViewDelegate, UITableViewDataSourc
         return 60
     }
 }
+

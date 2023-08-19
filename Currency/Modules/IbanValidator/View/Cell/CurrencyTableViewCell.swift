@@ -42,8 +42,8 @@ class CurrencyTableViewCell: UITableViewCell {
     }
     
     ///This function responsible for set the data to cell components
-    func configure(with currency: (String, String)) {
-        currencySymbolLabel.text = currency.0
-        currencyRateLabel.text = currency.1
+    func configure(with name: String, rate: Double) {
+        currencySymbolLabel.text = name
+        currencyRateLabel.text = String(format: "%.3f", rate)
     }
 }

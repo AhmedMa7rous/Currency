@@ -20,10 +20,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         //MARK: - App Entry Point
         
         ///Un comment the next line and replace "YourFirstViewController" with the first viewController of the app
-        //let nav = NavigationViewController.init(rootViewController: "YourFirstViewController"())
+        let nav = NavigationViewController.init(rootViewController: IbanValidatorViewController())
         
         ///Delete the next line after Un comment the previous line
-        let nav = NavigationViewController()
+        //let nav = NavigationViewController()
         
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
