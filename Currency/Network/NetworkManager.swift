@@ -48,8 +48,8 @@ extension NetworkManager: TargetType {
             return .requestParameters(parameters: ["iban_number": iban], encoding: URLEncoding.default)
         case .currencies(let baseCurrency):
             return .requestParameters(parameters: ["symbols": "", "base": baseCurrency], encoding: URLEncoding.default)
-        case .convertCurrency(let to, let from, let amout):
-            return .requestParameters(parameters: ["to": to, "from": from, "amout": amout], encoding: URLEncoding.default)
+        case .convertCurrency(let to, let from, let amount):
+            return .requestParameters(parameters: ["to": to, "from": from, "amount": amount], encoding: URLEncoding.default)
         }
     }
     

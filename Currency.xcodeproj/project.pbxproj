@@ -28,6 +28,10 @@
 		4B48F4A92A8FB96900F99908 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B48F4A82A8FB96900F99908 /* Validator.swift */; };
 		4B48F4AB2A8FBA8E00F99908 /* Currencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B48F4AA2A8FBA8E00F99908 /* Currencies.swift */; };
 		4BA13CC82A90E27B009B1AA9 /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA13CC72A90E27B009B1AA9 /* AlertManager.swift */; };
+		4BA13CCC2A911F7A009B1AA9 /* CurrencyConverterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA13CCA2A911F7A009B1AA9 /* CurrencyConverterViewController.swift */; };
+		4BA13CCD2A911F7A009B1AA9 /* CurrencyConverterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4BA13CCB2A911F7A009B1AA9 /* CurrencyConverterViewController.xib */; };
+		4BA13CD22A9138A9009B1AA9 /* Converter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA13CD12A9138A9009B1AA9 /* Converter.swift */; };
+		4BA13CD42A9138F1009B1AA9 /* CurrencyConverterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA13CD32A9138F1009B1AA9 /* CurrencyConverterViewModel.swift */; };
 		F7F785A119DB6A8881D91D38 /* Pods_Currency.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06BF3C9B350BA495A50C6D14 /* Pods_Currency.framework */; };
 /* End PBXBuildFile section */
 
@@ -56,6 +60,10 @@
 		4B48F4A82A8FB96900F99908 /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
 		4B48F4AA2A8FBA8E00F99908 /* Currencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currencies.swift; sourceTree = "<group>"; };
 		4BA13CC72A90E27B009B1AA9 /* AlertManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertManager.swift; sourceTree = "<group>"; };
+		4BA13CCA2A911F7A009B1AA9 /* CurrencyConverterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyConverterViewController.swift; sourceTree = "<group>"; };
+		4BA13CCB2A911F7A009B1AA9 /* CurrencyConverterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CurrencyConverterViewController.xib; sourceTree = "<group>"; };
+		4BA13CD12A9138A9009B1AA9 /* Converter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Converter.swift; sourceTree = "<group>"; };
+		4BA13CD32A9138F1009B1AA9 /* CurrencyConverterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyConverterViewModel.swift; sourceTree = "<group>"; };
 		E21E3BC3E6E83B2A208E76EF /* Pods-Currency.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Currency.debug.xcconfig"; path = "Target Support Files/Pods-Currency/Pods-Currency.debug.xcconfig"; sourceTree = "<group>"; };
 		F41DAD7F2E62A81965EA8BB8 /* Pods-Currency.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Currency.release.xcconfig"; path = "Target Support Files/Pods-Currency/Pods-Currency.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -117,6 +125,7 @@
 		4B48F47F2A8E9E7C00F99908 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				4BA13CC92A911F59009B1AA9 /* CurrencyConverter */,
 				4B48F48C2A8F974600F99908 /* IbanValidator */,
 				4B48F4802A8E9ED300F99908 /* NavigationController */,
 			);
@@ -157,8 +166,8 @@
 			children = (
 				4B48F4902A8F974600F99908 /* TableViewHeader.swift */,
 				4B48F4912A8F974600F99908 /* Cell */,
-				4B48F48E2A8F974600F99908 /* IbanValidatorViewController.xib */,
 				4B48F48F2A8F974600F99908 /* IbanValidatorViewController.swift */,
+				4B48F48E2A8F974600F99908 /* IbanValidatorViewController.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -221,6 +230,41 @@
 				4B48F4A62A8FB83800F99908 /* Observable.swift */,
 			);
 			path = Observables;
+			sourceTree = "<group>";
+		};
+		4BA13CC92A911F59009B1AA9 /* CurrencyConverter */ = {
+			isa = PBXGroup;
+			children = (
+				4BA13CD02A911F96009B1AA9 /* ViewModel */,
+				4BA13CCF2A911F8F009B1AA9 /* Model */,
+				4BA13CCE2A911F89009B1AA9 /* View */,
+			);
+			path = CurrencyConverter;
+			sourceTree = "<group>";
+		};
+		4BA13CCE2A911F89009B1AA9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4BA13CCA2A911F7A009B1AA9 /* CurrencyConverterViewController.swift */,
+				4BA13CCB2A911F7A009B1AA9 /* CurrencyConverterViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		4BA13CCF2A911F8F009B1AA9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4BA13CD12A9138A9009B1AA9 /* Converter.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		4BA13CD02A911F96009B1AA9 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				4BA13CD32A9138F1009B1AA9 /* CurrencyConverterViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		B02F265AE4BA85095371721F /* Pods */ = {
@@ -293,6 +337,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4B48F4782A8E9D4900F99908 /* LaunchScreen.storyboard in Resources */,
+				4BA13CCD2A911F7A009B1AA9 /* CurrencyConverterViewController.xib in Resources */,
 				4B48F48B2A8EA1A000F99908 /* sni.cloudflaressl.com.cer in Resources */,
 				4B48F4982A8F974600F99908 /* CurrencyTableViewCell.xib in Resources */,
 				4B48F4942A8F974600F99908 /* IbanValidatorViewController.xib in Resources */,
@@ -352,8 +397,10 @@
 			files = (
 				4B48F49C2A8F98A900F99908 /* IbanValidatorViewModel.swift in Sources */,
 				4B48F4872A8EA13100F99908 /* NetworkManager.swift in Sources */,
+				4BA13CCC2A911F7A009B1AA9 /* CurrencyConverterViewController.swift in Sources */,
 				4BA13CC82A90E27B009B1AA9 /* AlertManager.swift in Sources */,
 				4B48F4A22A8FB7BB00F99908 /* Utilities.swift in Sources */,
+				4BA13CD22A9138A9009B1AA9 /* Converter.swift in Sources */,
 				4B48F4832A8E9ED300F99908 /* NavigationViewController.swift in Sources */,
 				4B48F4A92A8FB96900F99908 /* Validator.swift in Sources */,
 				4B48F4A72A8FB83800F99908 /* Observable.swift in Sources */,
@@ -362,6 +409,7 @@
 				4B48F4AB2A8FBA8E00F99908 /* Currencies.swift in Sources */,
 				4B48F4972A8F974600F99908 /* CurrencyTableViewCell.swift in Sources */,
 				4B48F46E2A8E9D4700F99908 /* SceneDelegate.swift in Sources */,
+				4BA13CD42A9138F1009B1AA9 /* CurrencyConverterViewModel.swift in Sources */,
 				4B48F4892A8EA17500F99908 /* SSLPinningSessionManager.swift in Sources */,
 				4B48F4A02A8FB7A300F99908 /* UIView+Extension.swift in Sources */,
 				4B48F4962A8F974600F99908 /* TableViewHeader.swift in Sources */,

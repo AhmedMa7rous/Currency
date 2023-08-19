@@ -14,8 +14,8 @@ final class SSLPinningSessionManager: Session {
     
     static let shared: Session = {
         let configuration = URLSessionConfiguration.default
-        configuration.timeoutIntervalForRequest = 15
-        configuration.timeoutIntervalForResource = 15
+        configuration.timeoutIntervalForRequest = .infinity
+        configuration.timeoutIntervalForResource = .infinity
         
         // Load your pinned public key data
         guard let pinnedCertificatePath = Bundle.main.path(forResource: "sni.cloudflaressl.com", ofType: "cer"),
