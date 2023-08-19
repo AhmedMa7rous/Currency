@@ -17,26 +17,42 @@ class CurrencyConverterViewController: UIViewController {
     
 /*=================================================*/
     //MARK: - Properties
-    var fromCurrency = "USD"
-    var toCurrency = "EUR"
-    var currencies = ["USD", "EUR", "JPY", "GBP", "AUD"]
+    private var viewModel =  CurrencyConverterViewModel()
+    var fromCurrency: String
+    var toCurrency: String
+    var currencies: [String]
     
 /*=================================================*/
     //MARK: - LifeCycle
+    init(currencies: [String]) {
+        self.currencies = currencies
+        fromCurrency = currencies[0]
+        toCurrency = currencies[1]
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         updateUi()
+        bindOutputTextField()
     }
     
+/*========================================================*/
+    //MARK: - ViewLayout
+            
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        setUpTextFields()
+    }
     
 /*================================================*/
     //MARK: - Action Connections
     
-    // Action when input text field changes
-    @IBAction func inputValueChanged(_ sender: UITextField) {
-        convertCurrency(inputText: sender.text ?? "")
-    }
+
     
 /*================================================*/
     //MARK: - Support Functions
@@ -76,18 +92,25 @@ class CurrencyConverterViewController: UIViewController {
     //MARK: - Service Functions
     
     // Perform currency conversion
-    func convertCurrency(inputText: String) {
-        guard let inputValue = Double(inputText), !inputValue.isNaN else {
+    private func convertCurrency() {
+        guard let inputValue = inputTextField.text, !inputValue.isEmpty else {
             outputTextField.text = ""
             return
         }
         
-        // Perform conversion based on currency rates
-        // You would fetch real-time rates from an API in a real app
-        let conversionRate: Double = 1.2 // Example conversion rate
-        
-        let convertedValue = inputValue * conversionRate
-        outputTextField.text = String(format: "%.2f", convertedValue)
+        // Perform conversion
+        viewModel.convertCurrency(from: fromCurrency, to: toCurrency, amount: inputValue)
+    }
+    
+    //Bind outputTextField with result
+    private func bindOutputTextField() {
+        viewModel.convertedCurrency.bind { [weak self] result in
+            guard let result = result else { return }
+            DispatchQueue.main.async {
+                print(result.success)
+                self?.outputTextField.text = String(format: "%.2f", result.result)
+            }
+        }
     }
     
 }
@@ -121,12 +144,15 @@ extension CurrencyConverterViewController: UIPickerViewDataSource, UIPickerViewD
 /*===================================================*/
     //MARK: - TextField Functions
 extension CurrencyConverterViewController: UITextFieldDelegate {
+    
     // UITextFieldDelegate method
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        if textField == inputTextField {
-            let newText = (textField.text as NSString?)?.replacingCharacters(in: range, with: string) ?? ""
-            convertCurrency(inputText: newText)
-        }
+            if textField == self.inputTextField {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.9) { [weak self] in
+                    self?.convertCurrency()
+                }
+            }
+        
         return true
     }
 }
